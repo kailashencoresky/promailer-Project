@@ -1,5 +1,5 @@
-# Nodemailer Email Sender #
-This is a Node.js module that provides a simple way to send emails using Nodemailer. It allows you to configure the SMTP server and credentials, and then send emails with ease.
+# MailSender Email Sender #
+This is a custome module that provides a simple way to send emails using Nodemailer. It allows you to configure the SMTP server and credentials, and then send emails with ease.
 
 Installation
 To use this module, make sure you have Node.js installed on your system. Then, follow these steps:
