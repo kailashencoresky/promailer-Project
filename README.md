@@ -7,6 +7,8 @@ To use this module, make sure you have Node.js installed on your system. Then, f
 Clone or download this repository to your project folder.
 Install the required dependencies by running the following command:
 
+npm  install mailsender-1.0.0.tgz 
+
 const { sendMail, mailConfg } = require('./path/to/emailSender');
 
 
