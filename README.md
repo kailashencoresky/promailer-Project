@@ -9,7 +9,7 @@ Install the required dependencies by running the following command:
 
 npm  install mailsender-1.0.0.tgz 
 
-const { sendMail, mailConfg } = require('./path/to/emailSender');
+const { sendMail, mailConfg } = require('./path/to/mailsender');
 
 
 Configure the email transporter with your email credentials:
