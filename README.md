@@ -7,7 +7,7 @@ To use this module, make sure you have Node.js installed on your system. Then, f
 Clone or download this repository to your project folder.
 Install the required dependencies by running the following command:
 
-npm  install mailsender-1.0.0.tgz 
+npm  install mailsender-1.2.1.tgz 
 
 const { sendMail, mailConfg } = require('./path/to/mailsender');
 
@@ -18,6 +18,8 @@ Configure the email transporter with your email credentials:
 mailConfg({
   user: 'your_email@gmail.com',
   pass: 'your_email_password',
+  host:'your_smtp_host',
+  port:'your_smtp_port'
 });
 
 Send an email using the sendMail function:
