@@ -1,13 +1,13 @@
 {
-  "name": "mailsender",
-  "version": "1.2.1",
+  "name": "triggeremailfast",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kailash Mewada",
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^6.9.4"

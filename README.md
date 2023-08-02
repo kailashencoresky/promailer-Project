@@ -1,71 +1,93 @@
-# MailSender Email Sender #
-This is a custome module that provides a simple way to send emails using Nodemailer. It allows you to configure the SMTP server and credentials, and then send emails with ease.
+# triggeremailfast
 
-Installation
-To use this module, make sure you have Node.js installed on your system. Then, follow these steps:
+![Version](https://img.shields.io/npm/v/triggeremailfast.svg)
+![License](https://img.shields.io/npm/l/triggeremailfast.svg)
 
-Clone or download this repository to your project folder.
-Install the required dependencies by running the following command:
+A simple and fast Node.js package to send emails using Nodemailer.
 
-npm  install mailsender-1.0.0.tgz 
+## Installation
 
-const { sendMail, mailConfg } = require('./path/to/mailsender');
+```bash
+npm install triggeremailfast
+```
 
+## Usage
 
-Configure the email transporter with your email credentials:
+### mailConfg
 
-// Call this function before sending any emails
-mailConfg({
-  user: 'your_email@gmail.com',
-  pass: 'your_email_password',
-});
+This function is used to configure the email transporter with the necessary settings.
 
-Send an email using the sendMail function:
+```js
+const { mailConfg } = require('triggeremailfast');
 
-const from = 'your_email@gmail.com';
-const to = ['recipient1@example.com', 'recipient2@example.com'];
-const subject = 'Email Subject';
-const template = '<p>This is the email content.</p>';
+const mailConfigData = {
+  host: 'your-smtp-host',
+  port: 465,
+  user: 'your-email@example.com',
+  pass: 'your-email-password',
+  tls: true // optional: default is false
+};
 
-sendMail(from, to, subject, template)
-  .then(message => {
-    console.log(message);
-  })
-  .catch(error => {
+mailConfg(mailConfigData);
+```
+
+### sendMail
+
+This function is used to send an email using the configured transporter.
+
+```js
+const { sendMail } = require('triggeremailfast');
+
+// Sample usage
+(async () => {
+  try {
+    const from = 'sender@example.com';
+    const to = ['recipient1@example.com', 'recipient2@example.com'];
+    const subject = 'Test Email';
+    const template = '<h1>Hello, this is a test email!</h1>';
+
+    const result = await sendMail(from, to, subject, template);
+    console.log(result);
+  } catch (error) {
     console.error(error.message);
-  });
+  }
+})();
+```
 
+### Notes
 
-**Note**: Ensure that you allow "Less Secure Apps" on your Gmail account if you are using Gmail as your SMTP server. For production use, consider using an application-specific password instead.
+- The `mailConfg` function needs to be called once with valid configuration before using the `sendMail` function.
+- The `sendMail` function requires valid email addresses for both sender and recipients.
+- The package uses Nodemailer under the hood, and it supports TLS.
 
-API Reference
-mailConfg(config)
-This function sets up the email transporter with the provided configuration.
+## API
 
-config: An object containing the email credentials.
-user: Your email address (e.g., 'your_email@gmail.com').
-pass: Your email password or application-specific password.
-sendMail(from, to, subject, template)
-This function sends an email to the specified recipients.
+### mailConfg(data)
 
-from: The email address of the sender.
-to: An array of email addresses of the recipients.
-subject: The subject of the email.
-template: The HTML content of the email.
-Returns a promise that resolves to a success message containing the sent email's message ID or rejects with an error if the email sending process fails.
+This function takes a configuration object as input and sets up the email transporter.
 
-**License**
-This project is licensed under the MIT License - see the LICENSE file for details.
+- `data` (Object) - An object containing mail configuration.
+  - `host` (string) - The SMTP host (e.g., "smtp.gmail.com").
+  - `port` (number) - The port number (e.g., 465).
+  - `user` (string) - The username for authentication.
+  - `pass` (string) - The password for authentication.
+  - `tls` (boolean) - Whether to use TLS (optional, defaults to false).
 
-Acknowledgments
-This module utilizes the Nodemailer library to facilitate email sending. Nodemailer is a wonderful tool for email communication in Node.js applications.
+### sendMail(from, to, subject, template)
 
-For more information about Nodemailer, visit their website.
+This function sends an email using the configured transporter.
 
-Replace path/to/emailSender in the import statement with the actual path to the emailSender.js file in your project.
+- `from` (string) - The sender's email address.
+- `to` (string[]) - An array of recipient email addresses.
+- `subject` (string) - The subject of the email.
+- `template` (string) - The HTML content of the email.
 
-Please ensure to replace your_email@gmail.com and your_email_password in the examples with your actual Gmail account and password or application-specific password.
+Returns a Promise that resolves to a success message with the email message ID if the email is sent successfully.
 
-Additionally, you may customize the email content template to suit your specific use case. This template supports HTML, so you can format the email as needed.
+## License
 
-Remember to include any additional setup instructions or configuration details that are specific to your application or use case
+This project is licensed under the [ISC License](LICENSE).
+
+---
+
+Please note that you can customize the package name, version, author, and description in the `package.json` file based on your preferences. If you have any further questions or need additional customization, feel free to ask!
