@@ -22,10 +22,11 @@ const { mailConfg } = require('triggeremailfast');
 
 const mailConfigData = {
   host: 'your-smtp-host',
-  port: 465,
+  port: 'your-smtp-port',
   user: 'your-email@example.com',
   pass: 'your-email-password',
-  tls: true // optional: default is false
+  tls: //true , false,
+  secure://true, false
 };
 
 mailConfg(mailConfigData);

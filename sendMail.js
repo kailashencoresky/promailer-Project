@@ -40,11 +40,15 @@ function mailConfg(data) {
     if (data.tls !== undefined && typeof data.tls !== 'boolean') {
       throw new Error('Invalid tls: Please provide a valid boolean value for tls.');
     }
+     // If tls is provided, make sure it's a boolean
+     if (data.secure !== undefined && typeof data.secure !== 'boolean') {
+      throw new Error('Invalid secure: Please provide a valid boolean value for secure.');
+    }
   transporter = nodemailer.createTransport({
     tls: data.tls?data.tls:false,
     host:data.host, //"smtp.gmail.com"
     port: data.port,  //465
-    secure: true,
+    secure: data.secure,
     auth: {
       user: data.user,
       pass: data.pass
