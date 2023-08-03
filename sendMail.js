@@ -55,7 +55,7 @@ function mailConfg(data) {
   });
 }
 /**
- * Sends an email using Nodemailer.
+ * Sends an email using promailer.
  *
  * @async
  * @param {string} from - The sender's email address.
