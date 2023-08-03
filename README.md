@@ -1,14 +1,14 @@
-# triggeremailfast
+# promailer
 
-![Version](https://img.shields.io/npm/v/triggeremailfast.svg)
-![License](https://img.shields.io/npm/l/triggeremailfast.svg)
+![Version](https://img.shields.io/npm/v/promailer.svg)
+![License](https://img.shields.io/npm/l/promailer.svg)
 
 A simple and fast Node.js package to send emails using Nodemailer.
 
 ## Installation
 
 ```bash
-npm install triggeremailfast
+npm install promailer
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ npm install triggeremailfast
 This function is used to configure the email transporter with the necessary settings.
 
 ```js
-const { mailConfg } = require('triggeremailfast');
+const { mailConfg } = require('promailer');
 
 const mailConfigData = {
   host: 'your-smtp-host',
@@ -37,7 +37,7 @@ mailConfg(mailConfigData);
 This function is used to send an email using the configured transporter.
 
 ```js
-const { sendMail } = require('triggeremailfast');
+const { sendMail } = require('promailer');
 
 // Sample usage
 (async () => {
@@ -85,6 +85,8 @@ This function sends an email using the configured transporter.
 
 Returns a Promise that resolves to a success message with the email message ID if the email is sent successfully.
 
+
+---
 ## License
 
 This project is licensed under the [ISC License](LICENSE).
@@ -92,3 +94,4 @@ This project is licensed under the [ISC License](LICENSE).
 ---
 
 Please note that you can customize the package name, version, author, and description in the `package.json` file based on your preferences. If you have any further questions or need additional customization, feel free to ask!
+### Author :  Kailash Mewada
