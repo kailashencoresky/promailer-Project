@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 let transporter;
-/// @ts-ignore mailConfig method takes a config object and creates a new transporter instance.
 /**
  * @ts-ignore mailConfig method takes a config object and creates a new transporter instance.
  * This is a description of your function.
